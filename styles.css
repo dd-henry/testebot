@@ -1,0 +1,36 @@
+/* Estilos para o chat */
+#chatbox {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ccc;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.user-message {
+  background-color: #d1ffd6;
+  text-align: right;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  text-align: left;
+}
+
+#chatInput {
+  width: calc(100% - 110px);
+  padding: 10px;
+  margin-right: 5px;
+}
+
+#sendButton,
+#startButton {
+  padding: 10px;
+}
