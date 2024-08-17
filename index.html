@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chatbot de Escolhas</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
       body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
@@ -16,7 +22,7 @@
         height: 100vh;
       }
       .chat-container {
-        background-color: white;
+        background-color: rgb(18, 18, 18);
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 400px;
@@ -24,42 +30,92 @@
         padding: 20px;
       }
       .chatbox {
-        border: 1px solid #ccc;
+        border: 3px solid #f1c40f;
         border-radius: 5px;
         padding: 10px;
-        height: 300px;
+        height: 550px;
         overflow-y: auto;
         margin-bottom: 10px;
       }
       .chat-input {
         width: calc(100% - 60px);
         padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        height: 40px;
+        box-sizing: border-box;
+
+        border: 2px solid #f1c40f;
+        border-radius: 5px 0 0 5px;
+        margin-bottom: 10px;
+        outline: none;
       }
       .send-btn {
-        width: 80px;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        height: 100%;
+        padding: 5px;
+        border-color: #f1c40f;
+        background-color: #886e05;
+        color: #fff;
+        font-family: "Nunito", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-image: -webkit-linear-gradient(
+          45deg,
+          #f1c40f 50%,
+          transparent 50%
+        );
+        background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+        background-position: 100%;
+        background-size: 400%;
+        -webkit-transition: background 600ms ease-in-out;
+        transition: background 600ms ease-in-out;
+        border-radius: 0 10px 10px 0;
       }
+      .send-btn:hover {
+        background-position: 0;
+      }
+      .send-container {
+        display: flex;
+        box-sizing: border-box;
+        height: 40px;
+        /*background-color: red;*/
+      }
+
       .message {
         margin-bottom: 10px;
         padding: 10px;
-        border-radius: 10px;
+        /*border-radius: 10px;*/
         max-width: 80%;
         display: inline-block;
         clear: both;
       }
       .user-message {
-        background-color: #19b208;
+        background-color: #f1c40f;
         color: #fff;
-        text-align: right;
+        text-shadow: 2px 2px 3px #000000bb;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
         align-self: flex-end;
         float: right;
+        border-radius: 10px;
+        position: relative;
+        min-width: 10%;
+      }
+      .user-message::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 45%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-left-color: #f1c40f;
+        border-right: 0;
+        margin-top: -8px;
+        margin-right: -5px;
       }
       .bot-message {
         background-color: #f1f1f1;
@@ -67,19 +123,51 @@
         text-align: left;
         align-self: flex-start;
         float: left;
+        border-radius: 10px;
+        position: relative;
+      }
+      .bot-message::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 25%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-right-color: #f1f1f1;
+        border-left: 0;
+        margin-top: -8px;
+        margin-left: -8px;
+      }
+
+      summary {
+        position: absolute;
+        top: 10px;
+        left: 100px;
+        list-style: none;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
+    <details>
+      <summary>
+        <span class="material-symbols-outlined"> mark_unread_chat_alt </span>
+      </summary>
+    </details>
     <div class="chat-container">
       <div id="chatbox" class="chatbox"></div>
-      <input
-        id="chatInput"
-        type="text"
-        class="chat-input"
-        placeholder="Digite seu nome para começar"
-      />
-      <button id="sendBtn" class="send-btn">Enviar</button>
+      <div class="send-container">
+        <input
+          id="chatInput"
+          type="text"
+          class="chat-input"
+          placeholder="Digite seu nome para começar"
+        />
+        <button id="sendBtn" class="send-btn">
+          <span class="material-symbols-outlined"> send </span>
+        </button>
+      </div>
     </div>
 
     <script src="chatbot.js"></script>

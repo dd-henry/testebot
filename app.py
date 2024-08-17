@@ -6,6 +6,10 @@ def processar_escolha(opcao, nome):
         sabor = input(f'Escolha o sabor: {os.linesep}[1] - Sorvete de Chocolate{os.linesep}[2] - Sorvete de Morango{os.linesep}Digite a sua escolha: ')
         if sabor == '1':
             print(f'{nome}, você escolheu Sorvete de Chocolate.')
+            print(f'quer calda extra?')
+            calda = input(f'[1] - sim [2] - não')
+            if calda == '1':
+                print(f'ebaaaa')
         elif sabor == '2':
             print(f'{nome}, você escolheu Sorvete de Morango.')
         else:
